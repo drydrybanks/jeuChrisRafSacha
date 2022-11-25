@@ -23,6 +23,6 @@ public class HealthSlider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        barreVie.value = Dummy.vieDummy;
+      /*  barreVie.value = Dummy.vieDummy;*/
     }
 }

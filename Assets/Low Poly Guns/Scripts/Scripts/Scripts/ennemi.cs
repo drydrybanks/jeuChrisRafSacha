@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class ennemi : MonoBehaviour
 {
 
-    GameObject joueur; //Le joueur
+    public GameObject joueur; //Le joueur
 
     Vector3 positionDepart; // Position initital
 
@@ -21,6 +21,8 @@ public class ennemi : MonoBehaviour
     Animator animator;
 
     NavMeshAgent navMeshAgent;
+
+    Vector3 distanceJoueur;
 
     // VieJoueur vieJoueur; // À EFFACER QUAND SCRIPT VIE EXISTERA
 
@@ -44,6 +46,8 @@ public class ennemi : MonoBehaviour
 
         navMeshAgent = GetComponent<NavMeshAgent>();
 
+        navMeshAgent.stoppingDistance = 1f;
+
         
 
         //===== SECTION À COMPLETER PLUS TARD ============//
@@ -56,6 +60,13 @@ public class ennemi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        navMeshAgent.SetDestination(joueur.transform.position);
+        navMeshAgent.stoppingDistance = 3f;
+
+        if(Vector3.Distance(joueur.transform.position, transform.position) <= 3.5 ) {
+
+            GetComponent<Animator>().SetTrigger("attack1");
         
+        }
     }
 }

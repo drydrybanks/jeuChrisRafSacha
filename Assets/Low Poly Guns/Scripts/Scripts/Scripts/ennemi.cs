@@ -69,4 +69,18 @@ public class ennemi : MonoBehaviour
         
         }
     }
+
+
+
+    // Ajouter cette fonction avec Event au debut de l'animation d'attaque
+    // Permet de changer le transform pour regarder le joueur
+    public void RegarderJoueur()
+    {
+        transform.LookAt(joueur.transform);
+    }
+
+
+
+
+
 }
